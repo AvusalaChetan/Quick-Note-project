@@ -5,7 +5,7 @@ const {
   createNotes,
   getAllNotes,
   editNotes,
-  deleteNote
+  deleteNote,
 } = require("../controllers/notesController");
 
 const checkField = (req, res, next) => {
@@ -19,7 +19,7 @@ const checkField = (req, res, next) => {
 
 router.post("/", authApi, checkField, createNotes);
 router.get("/", authApi, getAllNotes);
-router.patch("/:id", authApi,checkField, editNotes);
-router.delete("/:id",authApi, deleteNote );
+router.patch("/:id", authApi, checkField, editNotes);
+router.delete("/:id", authApi, deleteNote);
 
 module.exports = router;
