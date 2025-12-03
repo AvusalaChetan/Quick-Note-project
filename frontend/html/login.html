@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/authforms.css" />
+  </head>
+
+  <body>
+    <main>
+      <div class="glass hole-contailer">
+        <div>
+          <h1 class="heading">login form</h1>
+        </div>
+        <div class="form-contailer">
+          <form action="/auth/login" method="post">
+            <div>
+              <label for="email">email</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                placeholder="example@gmail.com"
+              />
+            </div>
+            <div>
+              <label for="password">password</label>
+              <input
+                type="password"
+                placeholder="*******"
+                type="password"
+                name="password"
+                id="password"
+                autocomplete="current-password"
+              />
+            </div>
+            <span class="showpasswrod-container">
+              <input type="checkbox" class="showpassword" />
+              <span>show password</span>
+            </span>
+            <div>
+              <input type="submit" value="submit" />
+            </div>
+          </form>
+        </div>
+      </div>
+      <p>
+        do you have a account? <a href="/html/signup.html"> create account</a>
+      </p>
+    </main>
+    <script src="../scripts/pwd.js"></script>
+    <script src="../scripts/auth.js"></script>
+  </body>
+</html>
