@@ -4,9 +4,9 @@ const cors = require("cors");
 const app = express();
 const port = process.env.PORT || 8000;
 app.use(cors({origin: true, credentials: true}));
+require("./models/connectDB");
 
 const path = require("path");
-require("./models/connectDB");
 const cookieParser = require("cookie-parser");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
