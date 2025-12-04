@@ -20,7 +20,7 @@ const frontendPath = path.join(__dirname,  "frontend");
 console.log(frontendPath);
 app.use(express.static(frontendPath));
 
-app.get(["/", "/login"], (req, res) => {
+app.get("/", (req, res) => {
   res.sendFile(path.join(frontendPath, '/html/signup.html'));
 });
 
