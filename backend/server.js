@@ -16,11 +16,12 @@ app.use("/auth", require("./router/authRouter"));
 app.use("/note", require("./router/notesRouter"));
 app.use("/", require("./router/profile"));
 
-const frontendPath = path.join(__dirname, "frontend");
+const frontendPath = path.join(__dirname,  "frontend");
+console.log(frontendPath);
 app.use(express.static(frontendPath));
 
-app.get('/', (req, res) => {
-  res.sendFile(path.join(frontendPath, 'html', 'login.html'));
+app.get(["/", "/login"], (req, res) => {
+  res.sendFile(path.join(frontendPath, '/html/login.html'));
 });
 
 
@@ -35,4 +36,5 @@ app.use((err, req, res, next) => {
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
+  console.log(`http://127.0.0.1:${port}`);
 })
