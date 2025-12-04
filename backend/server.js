@@ -21,7 +21,7 @@ console.log(frontendPath);
 app.use(express.static(frontendPath));
 
 app.get(["/", "/login"], (req, res) => {
-  res.sendFile(path.join(frontendPath, '/html/login.html'));
+  res.sendFile(path.join(frontendPath, '/html/signup.html'));
 });
 
 
