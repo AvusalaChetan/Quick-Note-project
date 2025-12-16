@@ -20,8 +20,8 @@ const frontendPath = path.join(__dirname,  "views");
 console.log(frontendPath);
 app.use(express.static(frontendPath));
 
-app.get(["/", "/login"], (req, res) => {
-  res.sendFile(path.join(frontendPath, '/html/login.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(frontendPath, '/html/signup.html'));
 });
 
 
@@ -34,6 +34,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ success: false, message: "Something went wrong!" });
 });
 
+
 // fun start server 
 const startServer = async () => {
   await connectDB();
@@ -44,3 +45,4 @@ const startServer = async () => {
 };
 
 startServer();
+
