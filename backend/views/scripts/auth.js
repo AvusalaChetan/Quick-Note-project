@@ -2,7 +2,7 @@ const submit = document.querySelector("#submit");
 const form = document.querySelector("form");
 const holeContailer = document.querySelector(".hole-contailer");
 
-  const isLoginPage = window.location.pathname.includes("login");
+  const isLoginPage = window.location.pathname.includes("login") || '/';
   console.log(window.location.pathname,isLoginPage)
   let url ;
 
@@ -27,7 +27,7 @@ async function fetchFunction(e) {
       const success = document.createElement("p");
       success.innerHTML = `<h4 class="success">${data.message} </h4>`;
       holeContailer.appendChild(success);
-      window.location.href = "./home.html";
+      window.location.href = "./html/home.html";
     } else {
       const error = document.createElement("p");
       error.innerHTML = `<h4 class="error">${data.message} </h4>`;

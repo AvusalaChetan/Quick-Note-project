@@ -12,6 +12,7 @@ const authApi = (req, res, next) => {
 
     req.userId = decode.id;
     req.userEmail = decode.email;
+  
     next();
   } catch (error) {
     console.log(error);

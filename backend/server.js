@@ -1,10 +1,10 @@
 require("dotenv").config();
 const express = require("express");
+const connectDB = require("./models/connectDB");
 const cors = require("cors");
 const app = express();
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 app.use(cors({ origin: true, credentials: true }));
-require("./models/connectDB");
 
 const path = require("path");
 const cookieParser = require("cookie-parser");
@@ -16,7 +16,7 @@ app.use("/auth", require("./router/authRouter"));
 app.use("/note", require("./router/notesRouter"));
 app.use("/", require("./router/profile"));
 
-const frontendPath = path.join(__dirname,  "frontend");
+const frontendPath = path.join(__dirname,  "views");
 console.log(frontendPath);
 app.use(express.static(frontendPath));
 
@@ -26,15 +26,21 @@ app.get(["/", "/login"], (req, res) => {
 
 
 app.use((req, res) => {
-  res.status(404).json({ success: false, message: "404 page" });
+  res.sendFile(path.join(frontendPath, '/html/404.html'));
+  
 });
 
 app.use((err, req, res, next) => {
-  console.error(err.stack);
   res.status(500).json({ success: false, message: "Something went wrong!" });
 });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-  console.log(`http://127.0.0.1:${port}`);
-})
+// fun start server 
+const startServer = async () => {
+  await connectDB();
+
+  app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+  });
+};
+
+startServer();

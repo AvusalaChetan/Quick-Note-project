@@ -7,6 +7,20 @@ const tostStyle = {
   padding: "12px 24px",
   fontSize: "14px",
   borderRadius: "8px",
+  width: "30%",
+  height: "6%",
+  backgroundColor: "#000",
+  color: "#fff",
+  fontSize: "14px",
+  fontWeight: "bold",
+  textAlign: "center",
+  position: "absolute",
+  top: "0%",
+  right: "0%",
+  zIndex: 1000,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
 let notes = [];
 

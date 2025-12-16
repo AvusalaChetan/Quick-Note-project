@@ -39,7 +39,7 @@ const editNotes = async (req, res) => {
   const note = await notesModel.findById(req.params.id);
   if (!note) return 404;
 
-  if (note.owner.toString()) {
+  if (note.owner.toString() !== req.userId) {
     return res.status(403).json({message: "Forbidden"});
   }
   try {
@@ -68,7 +68,8 @@ const deleteNote = async (req, res) => {
   const note = await notesModel.findById(req.params.id);
   if (!note) return 404;
 
-  if (note.owner.toString()) {
+  console.log(note.owner.toString());
+  if (note.owner.toString() !== req.userId) {
     return res.status(403).json({message: "Forbidden"});
   }
   try {
