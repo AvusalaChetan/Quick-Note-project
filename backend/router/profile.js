@@ -26,7 +26,7 @@ router.get("/home", authApi, async (req, res) => {
 
 router.get("/profile", authApi, async (req, res) => {
   try {
-    const user = await userModel.findOne({_id: req.userId});
+    const user = await userModel.findOne({_id: req.userId}).select("-password");
     res.status(200).json({message:'sucessfull',user:user});
   } catch (error) {
     res.status(500).json({message:'something went worng, refresh again or login again'});

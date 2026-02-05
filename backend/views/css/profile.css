@@ -1,332 +1,84 @@
-/* Profile Page Styles */
-.profile-page {
-  max-width: 800px;
+
+main {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 2rem 1.5rem 3rem;
 }
 
-.profile-header {
-  margin-bottom: 2rem;
-}
-
-.profile-header h1 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.profile-content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-/* Profile Card */
-.profile-card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
+.profile-details {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
   border-radius: 12px;
   padding: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-.profile-avatar {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+.profile-details h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin-bottom: 0.5rem;
+}
+
+#userNotExist {
+  margin: 0.5rem 0 0;
+  color: #b00020;
+  font-weight: 600;
+}
+
+#avatarInitial {
+  width: 72px;
+  height: 72px;
   border-radius: 50%;
-  display: flex;
+  background: #111111;
+  color: #ffffff;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
-}
-
-.profile-info {
-  flex: 1;
-}
-
-.profile-info h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 8px 0;
-}
-
-.profile-info p {
-  color: #666;
-  margin: 4px 0;
-  font-size: 0.95rem;
-}
-
-.member-since {
-  color: #999;
-  font-size: 0.85rem;
-}
-
-/* Stats Card */
-.stats-card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-
-.stats-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 1rem 0;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1.5rem;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background: #f8f9fa;
-  border-radius: 8px;
-}
-
-.stat-number {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a1a1a;
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: #666;
-  margin-top: 4px;
-}
-
-/* Settings Card */
-.settings-card {
-  background: #fff;
-  border: 1px solid #e8e8e8;
-  border-radius: 12px;
-  padding: 1.5rem;
-}
-
-.settings-card h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 1rem 0;
-}
-
-.setting-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.setting-item:last-child {
-  border-bottom: none;
-}
-
-.setting-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.setting-label {
-  font-weight: 500;
-  color: #333;
-  font-size: 0.95rem;
-}
-
-.setting-value {
-  color: #666;
-  font-size: 0.9rem;
-}
-
-.btn-change {
-  padding: 8px 16px;
-  background: #f0f0f0;
-  border: none;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-change:hover {
-  background: #e0e0e0;
-}
-
-/* Danger Zone */
-.danger-zone {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #f0f0f0;
-}
-
-.danger-zone h4 {
-  color: #d32f2f;
-  font-size: 1rem;
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-}
-
-.btn-delete {
-  padding: 10px 20px;
-  background: #fff;
-  color: #d32f2f;
-  border: 1px solid #d32f2f;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-delete:hover {
-  background: #d32f2f;
-  color: #fff;
-}
-
-/* Modal (reuse from notes.css) */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-overlay.show {
-  display: flex;
-}
-
-.modal {
-  background: #fff;
-  border-radius: 16px;
-  width: 90%;
-  max-width: 450px;
-  max-height: 90vh;
-  overflow-y: auto;
-}
-
-.modal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5rem;
-  border-bottom: 1px solid #e8e8e8;
-}
-
-.modal-header h2 {
-  font-size: 1.3rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.modal-close {
-  background: none;
-  border: none;
   font-size: 1.8rem;
-  cursor: pointer;
-  color: #666;
-  line-height: 1;
+  font-weight: 700;
+  margin: 1.25rem 0;
+}
+
+.profile-details ul {
+  list-style: none;
   padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.75rem;
 }
 
-.modal-close:hover {
-  color: #000;
-}
-
-#passwordForm {
-  padding: 1.5rem;
-}
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.form-group input {
-  width: 100%;
-  padding: 12px 14px;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  font-size: 1rem;
-  box-sizing: border-box;
-}
-
-.form-group input:focus {
-  outline: none;
-  border-color: #333;
-}
-
-.modal-actions {
+.profile-details li {
   display: flex;
-  gap: 12px;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: baseline;
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  background: #fafafa;
 }
 
-.btn-cancel {
-  padding: 10px 20px;
-  background: #f0f0f0;
-  color: #333;
-  border: none;
-  border-radius: 8px;
+.profile-details li strong {
+  color: #1f1f1f;
+  min-width: 80px;
+}
+
+.profile-details li span {
+  color: #4a4a4a;
   font-weight: 500;
-  cursor: pointer;
 }
 
-.btn-cancel:hover {
-  background: #e0e0e0;
-}
-
-.btn-save {
-  padding: 10px 20px;
-  background: #000;
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btn-save:hover {
-  background: #333;
-}
-
-/* Responsive */
 @media (max-width: 768px) {
-  .profile-page {
-    padding: 1rem;
+  main {
+    padding: 1.5rem 1rem 2rem;
   }
 
-  .profile-card {
-    text-align: center;
-    border: 1px solid saddlebrown;
+  .profile-details {
+    padding: 1.5rem;
   }
 
-  .stats-grid {
-    grid-template-columns: 1fr;
+  .profile-details li {
+    padding: 0.65rem 0.85rem;
   }
 }

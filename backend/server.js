@@ -16,22 +16,21 @@ app.use("/auth", require("./router/authRouter"));
 app.use("/note", require("./router/notesRouter"));
 app.use("/", require("./router/profile"));
 
-const frontendPath = path.join(__dirname,  "views");
-console.log(frontendPath);
+
+const frontendPath = path.join(__dirname, "views");
 app.use(express.static(frontendPath));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(frontendPath, '/html/signup.html'));
+  return res.redirect("/html/signup.html");
 });
 
 
 app.use((req, res) => {
-  res.sendFile(path.join(frontendPath, '/html/404.html'));
-  
+  return res.sendFile(path.join(frontendPath, '/html/404.html'));
 });
 
 app.use((err, req, res, next) => {
-  res.status(500).json({ success: false, message: "Something went wrong!" });
+  return res.status(500).json({ success: false, message: "Something went wrong!" });
 });
 
 
@@ -41,6 +40,7 @@ const startServer = async () => {
 
   app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    console.log(`Visit http://localhost:${PORT} to access the application`);
   });
 };
 

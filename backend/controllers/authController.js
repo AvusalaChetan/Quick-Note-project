@@ -38,7 +38,7 @@ const signUp = async (req, res) => {
     }
     return res
       .status(500)
-      .json({ message: "some thing went worng", signup: false });
+      .json({ message: err.message, signup: false });
   }
 };
 
@@ -85,7 +85,7 @@ const logOut = (req, res) => {
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
   });
-  return res.status(200).json({ message: "Logout successful",logOut:true });
+  return res.status(200).json({ message: "Logout successful", logOut: true });
 };
 
 module.exports = { signUp, logIn, logOut };
